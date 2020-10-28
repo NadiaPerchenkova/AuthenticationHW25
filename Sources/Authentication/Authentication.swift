@@ -8,9 +8,9 @@ enum AuthError: Error {
     case somethingWentWrong
 }
 
-class Authentication {
+class MyAuthentication {
     
-    static let shared = Authentication()
+    static let shared = MyAuthentication()
     private init() {}
     
     
