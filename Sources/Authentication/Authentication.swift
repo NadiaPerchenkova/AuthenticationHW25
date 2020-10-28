@@ -1,20 +1,20 @@
 import Foundation
 import SwiftKeychainWrapper
 
-enum AuthError: Error {
+public enum AuthError: Error {
     case notExist
     case alreadyExist
     case wrongPassword
     case somethingWentWrong
 }
 
-class MyAuthentication {
+public class MyAuthentication {
     
-    static let shared = MyAuthentication()
+    public static let shared = MyAuthentication()
     private init() {}
     
     
-    func logIn(email: String, password: String) -> Result<Bool, AuthError> {
+    public func logIn(email: String, password: String) -> Result<Bool, AuthError> {
         
         let passwordKeycain: String? = KeychainWrapper.standard.string(forKey: email)
         
@@ -26,7 +26,7 @@ class MyAuthentication {
         return .success(true)
     }
     
-    func signUp(email: String, password: String) -> Result<Bool, AuthError> {
+    public func signUp(email: String, password: String) -> Result<Bool, AuthError> {
         
         let passwordKeycain: String? = KeychainWrapper.standard.string(forKey: email)
         
